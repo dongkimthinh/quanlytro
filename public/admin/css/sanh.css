@@ -1,0 +1,32 @@
+.modal-body {
+    padding: 40px 80px;
+}
+
+.custom-ndtt {
+    width: 400px;
+}
+
+.custom-nd {
+    display: -webkit-box;
+    width: 300px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.custom-filter {
+    display: contents;
+}
+
+.custom-btn-filter {
+    margin-left: 10px;
+    /* height: 35px; */
+}
+
+@media (min-width: 576px){
+    .custom-post-news {
+        max-width: unset;
+    }
+}
