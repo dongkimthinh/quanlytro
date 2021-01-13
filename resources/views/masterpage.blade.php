@@ -15,7 +15,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="{{ asset('public/img/logo1.gif') }}">
+    <link rel="shortcut icon" href="{{ asset('public/img/logohachinhmenu.jpg') }}">
     <!-- Css Styles -->
 
     <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css') }}" type="text/css">
@@ -590,7 +590,7 @@ var no=100;var hidesnowtime=0;var snowdistance='pageheight';var ie4up=(document.
     <!-- Footer Section End -->
     <!-- Js Plugins -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
     <script type="text/javascript">
         $(document).ready(function() {
             $('#add').on('click',function(){
@@ -692,18 +692,20 @@ var no=100;var hidesnowtime=0;var snowdistance='pageheight';var ie4up=(document.
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
             var time = today.getHours() + ":" + today.getMinutes();
-            var minute = dateVal.getMinutes().toString().padStart(2, "0");
-            console.log(time);
+            {{-- var minute = dateVal.getMinutes().toString().padStart(2, "0"); --}}
             {{-- today = yyyy + '-' + mm + '-' + dd +'T'+time; --}}
-            today =timestampToDatetimeInputString(Date.now());
-            var ngayden = $('.ngayden').val(today);
-            $('#datein').on('change',function(){
-                console.log($('#datein').val());
-                if($('#datein').val()<today){
+            {{-- today =document.querySelector('input[type="datetime-local"]').val(); --}}
+            var today = $('#datein1000').val();
+            {{-- console.log(today); --}}
+
+            {{-- var ngayden = $('#datein1000').val(today);  --}}
+            $('#datein1000').on('change',function(){
+                {{-- console.log($('#datein1000').val()); --}}
+                if($('#datein1000').val()<today){
                     alert('Ngày bạn vừa nhập bé hơn hiện tại');
                 } else {
                     $.ajax({
-                        url:"{{ route('ngayden') }}/"+$('#datein').val(),
+                        url:"{{ route('ngayden') }}/"+$('#datein1000').val(),
                         type:"GET",
                         success:function(){
 
@@ -1020,7 +1022,10 @@ var no=100;var hidesnowtime=0;var snowdistance='pageheight';var ie4up=(document.
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-
+    <script src="{{ asset('public/js/wow.min.js') }}"></script>
+    <script>
+        new WOW().init();
+    </script>
 
 </body>
 

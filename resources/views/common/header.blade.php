@@ -45,12 +45,12 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="tn-right pull-right">
-                        <div class="top-social" style="float: left;padding:13px 0px 11px">
+                        {{-- <div class="top-social" style="float: left;padding:13px 0px 11px">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-tripadvisor"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                        </div>
+                        </div> --}}
                         {{-- @php
                         $soluong = 0;
                         @endphp --}}
@@ -153,7 +153,7 @@
                 <div class="col-lg-2">
                     <div class="logo">
                         <a href="{{ route('index') }}">
-                            <img src="{{ asset('public/img/logo1.gif') }}" style="width: 86px;height: 50px" alt="">
+                            <img src="{{ asset('public/img/logohachinhmenu.jpg') }}" style="width: 86px;height: 50px" alt="">
                         </a>
                     </div>
                 </div>

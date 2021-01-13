@@ -127,7 +127,7 @@
 
                     @foreach ($phong as $ph)
                         @if ($loaiphong[$g]['id_loai_phong'] == $ph->id_loai_phong)
-                        <div class="text-center room-item" style="border: 1px solid #ebebeb">
+                        <div class="text-center room-item custom-mota-home" style="border: 1px solid #ebebeb">
                             <h2 class="text-center">Mô Tả</h2>
                             <p class="text-center" >{{ $ph->mota }}</p>
                             <a href="{{ route('type-rooms',$loaiphong[$g]['id_loai_phong']) }}" class="btn btn-primary" style="color: black">Xem Ngay</a>
@@ -275,7 +275,7 @@
     <!-- Home Room Section End -->
 
     <!-- About Us Section Begin -->
-    <section class="aboutus-section spad">
+    <section class="aboutus-section spad custom-blog-section wow" data-wow-duration="2s">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -408,7 +408,7 @@
     <!-- Services Section End -->
 
     <!-- Testimonial Section Begin -->
-    <section class="testimonial-section spad">
+    <section class="testimonial-section spad wow" data-wow-duration="2s">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

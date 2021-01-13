@@ -6,17 +6,17 @@
                     <div class="ft-about">
                         <div class="logo">
                             <a href="#">
-                                <img src="{{ asset('public/img/footer-logo2.jpg') }}" style="width: 86px;height: 50px" alt="">
+                                <img src="{{ asset('public/img/logohachinh.jpg') }}" style="width: 86px;height: 50px" alt="">
                             </a>
                         </div>
                         <p>Cho thuê phòng trọ giá rẻ<br /> tại TP.HCM</p>
-                        <div class="fa-social">
+                        {{-- <div class="fa-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-tripadvisor"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>

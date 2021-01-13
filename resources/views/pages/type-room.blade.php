@@ -144,6 +144,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-12">
+                        <div class="text-center room-item backInLeft wow" data-wow-duration="2s" style="border: 1px solid #ebebeb">
+                            <div class="custom-mota-tr ri-text">
+                                <h4>Mô tả: {{ $loai->ten_loai_phong }}</h4>
+                                    <table  style="margin-left: auto; margin-right: auto;">
+                                        <tbody>
+                                            <p>
+                                                {{ $ph->mota }}
+                                            </p>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner custom-js">
 
@@ -161,31 +178,17 @@
 
                         <!-- </div> -->
                         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="carousel-control-prev-icon custom-prev-tr" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="carousel-control-next-icon custom-next-tr" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
                     <!-- </div> -->
 
                 @endforeach
-                <div class="col-lg-12">
-                    <div class="text-center room-item" style="border: 1px solid #ebebeb">
-                        <div class="ri-text">
-                            <h4>Mô tả: {{ $loai->ten_loai_phong }}</h4>
-                                <table  style="margin-left: auto; margin-right: auto;">
-                                    <tbody>
-                                        <p>
-                                            {{ $ph->mota }}
-                                        </p>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 {{-- <div class="col-lg-4 col-md-6">
                     <div class="room-item">
                         <img src="{{ asset('public/img/room/room-2.jpg') }}" alt="">

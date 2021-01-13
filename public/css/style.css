@@ -10441,7 +10441,7 @@ ul, ol {
 	padding-top: 20px;
   padding-bottom: 30px;
   background-color: aliceblue;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 .breadcrumb-text {
 	text-align: center;

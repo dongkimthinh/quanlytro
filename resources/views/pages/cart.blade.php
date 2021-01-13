@@ -44,7 +44,7 @@
             @endif
           <!-- Shopping cart table -->
           <div class ="col-lg-6">
-                Ngày Đến Xem Phòng:<input type="datetime-local" data name="ngayden" value="@php $today = date("Y-m-d\TH:i"); echo $today; @endphp"  class="form-control ngayden" id="datein" style="margin: 0px 0px 0px;padding:6px 12px 6px 25px">
+                Ngày Đến Xem Phòng:<input type="datetime-local" data name="ngayden" value="@php $today = date("Y-m-d\TH:i"); echo $today; @endphp"  class="form-control ngayden" id="datein1000" style="margin: 0px 0px 0px;padding:6px 12px 6px 25px">
             </br>
           </div>
           <div class="table-responsive">
