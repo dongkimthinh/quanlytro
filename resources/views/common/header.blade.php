@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <ul class="tn-left">
+                    <ul class="tn-left custom-tn-left">
                         <!-- <li><i class="fa fa-phone"></i> (12) 345 67890</li> -->
                         @if (!Auth::guard('taikhoan')->check())
                             <li class="signup-switch signup-open"><i class="fa fa-sign-out"></i> <a
@@ -43,7 +43,9 @@
                         {{-- </li> --}}
                     </ul>
                 </div>
+                <a  href="{{ route('cart') }}">
                 <div class="col-lg-6">
+
                     <div class="tn-right pull-right">
                         {{-- <div class="top-social" style="float: left;padding:13px 0px 11px">
                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -81,22 +83,22 @@
                                 <li id="cap1" style="list-style: none">
                                     <div class="bk-btn" id="bk-btn">
                                         <a href="{{ route('cart') }}" id="cart" id="load">
-                                            <label style="font-size:9px;" style="float:right">
-                                                <div style="font-size:12px">Giỏ hàng</div>
+                                            <label class="custom-count" style="font-size:9px;" style="float:right">
+                                                <div style="font-size:12px" class="custom-hidden">Giỏ hàng</div>
                                                 @if (session()->has('cart'))
                                                     <div id="load_sl" style="float: left">
                                                         {{ $tongsoluong }}
-                                                    </div>-Sản Phẩm
+                                                    </div><span class="custom-hidden">-Sản Phẩm</span>
                                                 @else
                                                     <div id="load_sl" style="float: left">
                                                         @php
                                                         echo '0'
                                                         @endphp
-                                                    </div>-Sản Phẩm
+                                                    </div><span class="custom-hidden">-Sản Phẩm</span>
                                                 @endif
 
                                             </label>
-                                            <img src="{{ asset('public/img/about/cart.png') }}"
+                                            <img class="custom-img-cart" src="{{ asset('public/img/about/cart.png') }}"
                                                 style="zoom:5%;padding-bottom: 300px">
                                         </a>
                                     </div>
@@ -143,7 +145,9 @@
                             </div>
                         </div> --}}
                     </div>
+
                 </div>
+                </a>
             </div>
         </div>
     </div>
@@ -157,14 +161,14 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-10 custom-header-menu">
                     <div class="nav-menu">
                         <nav class="mainmenu">
                             <ul>
                                 <li><a href="{{ route('index') }}">Trang Chủ</a></li>
 
 
-                                <li><a href="">Loại Phòng</a>
+                                <li><a>Loại Phòng</a>
                                     <ul class="dropdown ct-tr">
                                         {{-- <li><a href="{{ route('type-rooms') }}">Vip
                                                 1</a></li>

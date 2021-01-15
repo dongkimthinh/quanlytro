@@ -24,6 +24,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PayMentController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\ThongTinLienHeController;
 use App\Http\Controllers\TrangThietBiController;
 use App\Models\SlideModel;
 use Illuminate\Support\Facades\DB;
@@ -106,6 +107,9 @@ Route::prefix('admin')->group(function () {
     Route::get('gioithieudelete/{id?}',[AboutusController::class,'gioithieudelete'])->name('gioithieudelete');
 
     Route::get('charts',[DashboardController::class,'charts'])->name('charts');
+
+    Route::get('lienhe',[ThongTinLienHeController::class,'lienhe'])->name('lienhe');
+    Route::post('addlienhe',[ThongTinLienHeController::class,'addlienhe'])->name('addlienhe');
 
     Route::get('news',[NewsController::class,'newsAdmin'])->name('newsAdmin');
     Route::get('newsEdit/{id?}',[NewsController::class,'newsEdit'])->name('newsEdit');

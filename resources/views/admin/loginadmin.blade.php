@@ -35,7 +35,7 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="{{ asset('public/admin/img/adminlogo.jpg') }}" alt="logo"></a><span class="splash-description">Vui lòng nhập thông tin người dùng của bạn.</span></div>
+            <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="{{ asset('public/img/HACHINH.jpg') }}" alt="logo"></a><span class="splash-description">Vui lòng nhập thông tin người dùng của bạn.</span></div>
             <div class="card-body">
                 <form method="POST" action="{{ route('loginadminpost') }}">
                     @csrf

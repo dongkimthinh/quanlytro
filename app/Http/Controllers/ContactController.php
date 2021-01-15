@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -10,7 +11,8 @@ class ContactController extends Controller
 {
     //
     public function contact(){
-        return view('pages.contact');
+        $lienhe = DB::table('gioithieu')->select('id','diachi')->get();
+        return view('pages.contact',compact('lienhe'));
     }
     public function contractpost(Request $request){
         if($request->isMethod('POST')){

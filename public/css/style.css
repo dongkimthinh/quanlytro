@@ -11336,7 +11336,7 @@ ul, ol {
 }
 .contact-text table tbody tr td.c-o {
 	color: #707079;
-	width: 75px;
+	/* width: 75px; */
 }
 .contact-form input {
 	width: 100%;

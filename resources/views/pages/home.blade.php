@@ -27,7 +27,6 @@
                 <div class="carousel-caption d-none d-md-block">
                     <div class="hero-text">
                     <h3 style="color: #ffffff;">{{ $slide[$i]['tieude'] }}</h3>
-                    <p>{{ $slide[$i]['noidung'] }}</p>
                     </div>
                 </div>
 
@@ -282,7 +281,7 @@
                     <div class="about-text">
                         <div class="section-title">
                             <span>GIỚI THIỆU</span>
-                            <h2>quanlytro.com</h2>
+                            <h2>thuetro.myvnc.com</h2>
                         </div>
                         <p class="f-para">Chúng tôi biết bạn có rất nhiều lựa chọn, nhưng quanlytro.com tự hào là trang web đứng top google về các từ khóa: cho thuê phòng trọ,nhà trọ,...Chúng tôi rất vui được cung cấp cho bạn những loại phòng phù hợp với nhu cầu và giá cả.</p>
                         <p class="s-para">Đến đây bạn sẽ được cung cấp các dịch vụ và tiền nghi tốt nhất.Bạn có thể dễ dàng lựa chọn và đặt phòng chờ với những bước đơn giản.</p>
@@ -439,7 +438,7 @@
                                 </div>
                                 <h5> - Alexander Vasquez</h5> --}}
                             </div>
-                            <img src="{{ asset('public/img/logo1.gif') }}" height="49" width="71" alt="">
+                            <img src="{{ asset('public/img/logohachinhmenu.jpg') }}" height="49" width="71" alt="">
                         </div>
                         @endforeach
                         {{-- <div class="ts-item">
@@ -472,7 +471,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Trọ Mới</span>
+                        <span>Hà Chinh</span>
                         <h2>MỘT SỐ HÌNH ẢNH NỔI BẬT VỀ DÃY TRỌ MỚI</h2>
                     </div>
                 </div>

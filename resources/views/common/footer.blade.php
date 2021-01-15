@@ -26,9 +26,17 @@
                         <ul>
                             <li>0703 150 380 ( Mr.Thịnh )</li>
                             <li>dongkimthinh123@gmail.com</li>
-                            <li>18 Nguyễn Sáng,Phường Tây Thạnh,Quận Tân Phú, TP.HCM</li>
-                            <li>31 Cống Lỡ, Phường 15, Quận Gò Vấp, TP.HCM </li>
-                            <li>17B Tân Trụ, Phường 15, Quận Tân Bình, TP.HCM</li>
+                            @php
+                                $stt = 0;
+                            @endphp
+                            @foreach($gioithieu as $key => $value)
+                                @for($i=0;$i<count($gioithieu);$i++)
+                                    <li>Chi Nhánh {{ $stt=$stt+1 }}:{{ $value->diachi }}</li>
+                                    @break
+                                @endfor
+                            @endforeach
+                            {{--  <li>31 Cống Lỡ, Phường 15, Quận Gò Vấp, TP.HCM </li>
+                            <li>17B Tân Trụ, Phường 15, Quận Tân Bình, TP.HCM</li>  --}}
                         </ul>
                     </div>
                 </div>
