@@ -110,6 +110,8 @@ Route::prefix('admin')->group(function () {
 
     Route::get('lienhe',[ThongTinLienHeController::class,'lienhe'])->name('lienhe');
     Route::post('addlienhe',[ThongTinLienHeController::class,'addlienhe'])->name('addlienhe');
+    Route::post('postlienhe',[ThongTinLienHeController::class,'postlienhe'])->name('postlienhe');
+    Route::get('deletelienhe/{id?}',[ThongTinLienHeController::class,'deletelienhe'])->name('deletelienhe');
 
     Route::get('news',[NewsController::class,'newsAdmin'])->name('newsAdmin');
     Route::get('newsEdit/{id?}',[NewsController::class,'newsEdit'])->name('newsEdit');

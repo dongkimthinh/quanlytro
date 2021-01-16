@@ -79,7 +79,15 @@
                                     </td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $kh -> ten_tk}}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $kh -> tenkh}}</td>
-                                    <td class="text-center" style="vertical-align: middle;">{{ $kh-> sdt_kh }}</td>
+                                    @php
+                                        $phone = str_replace(" ", "", $kh->sdt_kh);
+                                        if(strlen($phone)==10){
+                                            $kq = substr($phone, 0, 4) . " " . substr($phone, 4, 3) . " " . substr($phone, 7, 3);
+                                        } else{
+                                            $kq = substr($phone, 0, 3) . " " . substr($phone, 3, 3) . " " . substr($phone, 6, 3). " " . substr($phone, 9, 2);
+                                        }
+                                    @endphp
+                                    <td class="text-center" style="vertical-align: middle;">{{ $kq }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $kh-> email_kh }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $kh -> gioitinh }}</td>
                                     <td class="text-center" style="vertical-align: middle">
@@ -829,6 +837,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -888,6 +897,7 @@
                                     <div class="form-group">
                                         <label>Mô tả</label>
                                         <textarea class="form-control" name="mota"></textarea>
+
                                     </div>
                                 </div>
                             </div>
@@ -968,6 +978,7 @@
                             <div class="form-group">
                                 <label>Mô tả</label>
                                 <textarea class="form-control" name="mota" value="">{{ $ph1 -> mota }}</textarea>
+
                             </div>
                         </div> --}}
                     </div>

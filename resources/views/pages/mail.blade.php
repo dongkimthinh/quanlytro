@@ -332,7 +332,7 @@
                                                                     style="padding:0;Margin:0;padding-left:15px;font-size:0">
                                                                     <a href="{{ route('index') }}" target="_blank"
                                                                         style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#999999"><img
-                                                                            src="{{ asset('public/img/logo1.gif') }}"
+                                                                            src="{{ asset('public/img/logohachinhmenu.jpg') }}"
                                                                             alt="Petshop logo" title="Petshop logo"
                                                                             width="118"
                                                                             style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a>
@@ -721,7 +721,7 @@
                                                             <tr style="border-collapse:collapse">
                                                                 <td class="es-m-p0l es-m-txt-c" align="center"
                                                                     style="padding:0;Margin:0;font-size:0"><img
-                                                                        src="{{ asset('public/img/logo1.gif') }}"
+                                                                        src="{{ asset('public/img/logohachinhmenu.jpg') }}"
                                                                         alt="Petshop logo" title="Petshop logo"
                                                                         width="108"
                                                                         style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic">

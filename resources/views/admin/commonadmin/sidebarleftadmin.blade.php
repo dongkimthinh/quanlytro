@@ -99,6 +99,18 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
+        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities8"
+        aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fab fa-adversal"></i>
+            <span>Quản Lý</span>
+        </a>
+        <div id="collapseUtilities8" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="py-2 bg-white rounded collapse-inner">
+                <h6 class="collapse-header">Tùy chỉnh:</h6>
+                <a class="collapse-item" href="{{ route('lienhe') }}">Thông Tin Quản Lý</a>
+            </div>
+        </div>
         <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-procedures"></i>

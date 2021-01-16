@@ -531,6 +531,7 @@ var no=100;var hidesnowtime=0;var snowdistance='pageheight';var ie4up=(document.
     @include('common.offcanvasmenusectionbegin')
     <!-- Offcanvas Menu Section End -->
     <!-- Header Section Begin -->
+    @include('common.menu-mobile')
     @include('common.header')
     <div class="col-lg-12" id="showOrHide" style="display: none;z-index: 5;">
         <div class="booking-form">
@@ -634,6 +635,7 @@ var no=100;var hidesnowtime=0;var snowdistance='pageheight';var ie4up=(document.
                     .done(function(){
                         $("#load_sl").load(location.href + " #load_sl");
                         $("#load_sl1").load(location.href + " #load_sl1");
+                        $("#load_sl2").load(location.href + " #load_sl2");
                         $("#load_inf").load(location.href + " #load_inf");
                     });
                 }
@@ -678,6 +680,7 @@ var no=100;var hidesnowtime=0;var snowdistance='pageheight';var ie4up=(document.
                         $('.sourceDiv').load(location.href + " .sourceDiv");
                         $("#load_sl").load(location.href + " #load_sl");
                         $("#load_sl1").load(location.href + " #load_sl1");
+                        $("#load_sl2").load(location.href + " #load_sl2");
                         $("#load_inf").load(location.href + " #load_inf");
 
                     });
@@ -989,7 +992,9 @@ var no=100;var hidesnowtime=0;var snowdistance='pageheight';var ie4up=(document.
         </script>
         {{-- <a class="diachi" id="{{ $key->diachi }}" style="width: 450px">{{ $key->diachi }}</a> --}}
     @endforeach
-
+    <script>
+        subMenu=jQuery(this).next('.sub-menu, .children');if(subMenu.length>0){var viewportClass=isElementInViewport(subMenu);if(false!==viewportClass){subMenu.addClass(viewportClass);}}}});})();(function(){jQuery(document).ready(function(){var mainWrapper=document.querySelector('#header-text-nav-container .inner-wrap'),branding=document.getElementById('header-left-section'),headerAction=document.querySelector('.header-action'),navigation=document.getElementById('site-navigation'),mainWidth=mainWrapper.offsetWidth,brandWidth=branding.offsetWidth,navWidth=navigation.offsetWidth,headerActionWidth=headerAction.offsetWidth,isExtra=(brandWidth+navWidth+headerActionWidth)>mainWidth,more=navigation.getElementsByClassName('tg-menu-extras-wrap')[0],headerDisplayTypeFour=document.getElementById('spacious-header-display-four');if(headerDisplayTypeFour!==null){isExtra=(navWidth+headerActionWidth)>=mainWidth;}
+    </script>
     <script src="{{ asset('public/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('public/js/jquery.magnific-popup.min.js') }}"></script>

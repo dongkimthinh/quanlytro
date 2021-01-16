@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Quản lý trọ - @yield('title')</title>
-    <link rel="shortcut icon" href="{{ asset('public/img/logo1.gif') }}">
+    <link rel="shortcut icon" href="{{ asset('public/img/logohachinhmenu.jpg') }}">
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('public/admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -71,7 +71,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <a class="rounded scroll-to-top" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 @else
@@ -79,9 +79,9 @@
 
     <!-- 404 Error Text -->
     <div class="text-center">
-        <div class="error mx-auto" data-text="404">404</div>
-        <p class="lead text-gray-800 mb-5">Page Not Found</p>
-        <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
+        <div class="mx-auto error" data-text="404">404</div>
+        <p class="mb-5 text-gray-800 lead">Page Not Found</p>
+        <p class="mb-0 text-gray-500">It looks like you found a glitch in the matrix...</p>
         <a href="{{ route('loginadmin') }}">&larr; Back to Dashboard</a>
     </div>
 
@@ -146,7 +146,7 @@
                 var trangthai = $('#settrangthai').val();
                 $('#trangthai').val(trangthai);
                 {{-- console.log(trangthai); --}}
-                
+
             $('#chonngay').on('change',function(){
                 var today = new Date();
                 var dd = String(today.getDate()).padStart(2, '0');

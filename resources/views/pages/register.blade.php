@@ -14,22 +14,21 @@
                                 labore et dolore magna aliqua.</p> -->
                         <table>
                             <tbody>
-
+                                    @php
+                                    $stt = 0;
+                                    @endphp
+                                    @foreach($gioithieu as $key => $value)
+                                        @for($i=0;$i<count($gioithieu);$i++)
                                     <tr>
-                                        <td class="c-o">Address:</td>
-                                        <td>18 Nguyễn Sáng,Phường Tây Thạnh,Quận Tân Phú, TP.HCM</td>
+                                        <td class="c-o">Chi Nhánh {{ $stt=$stt+1 }}:</td>
+                                        <td>{{ $value->diachi }}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="c-o">Address:</td>
-                                        <td>17B Tân Trụ, Phường 15, Quận Tân Bình, TP.HCM </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="c-o">Address:</td>
-                                        <td>31 Cống Lỡ, Phường 15, Quận Gò Vấp, TP.HCM</td>
-                                    </tr>
+                                            @break
+                                        @endfor
+                                    @endforeach
                                     <tr>
                                         <td class="c-o">SĐT:</td>
-                                        <td>0703 150 380 (Mr.Thịnh) </td>
+                                        <td>0703 150 380 </td>
                                     </tr>
                                     <tr>
                                         <td class="c-o">Email:</td>

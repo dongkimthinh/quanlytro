@@ -10,9 +10,9 @@
             @php
                 $stt = 0
             @endphp
-            @for($i = count($slide)-1; $i >= 0; $i--)
-                @for($j = count($slide)-1; $j >= 0;$j--)
-                        <li data-target="#carouselExampleCaptions" data-slide-to="{{ $stt++ }}" class="{{ $i == count($slide)-1 ? 'active' : '' }}"></li>
+            @for($i=count($slide)-1; $i>=0;$i--)
+                @for($j=count($slide)-1;$j>=0;$j--)
+                        <li data-target="#carouselExampleCaptions" data-slide-to="{{ $stt++ }}" class="{{ $i==count($slide)-1?'active':'' }}"></li>
                     @break
                 @endfor
 
@@ -21,8 +21,8 @@
             <li data-target="#carouselExampleCaptions" data-slide-to="2"></li> --}}
         </ol>
         <div class="carousel-inner">
-            @for($i = count($slide)-1; $i >= 0; $i--)
-            <div class="carousel-item {{ $i == count($slide)-1 ? 'active' : '' }}">
+            @for($i=count($slide)-1;$i>= 0;$i--)
+            <div class="carousel-item {{ $i==count($slide)-1?'active':'' }}">
                 <img src="{{ asset('public/slide/'.$slide[$i]['anh']) }}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <div class="hero-text">

@@ -28,7 +28,7 @@
                                 </tr>
                                 <tr>
                                     <td class="c-o">SĐT:</td>
-                                    <td>0703 150 380 (Mr.Thịnh) </td>
+                                    <td>0703 150 380</td>
                                 </tr>
                                 <tr>
                                     <td class="c-o">Email:</td>

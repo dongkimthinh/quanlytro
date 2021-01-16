@@ -11,8 +11,9 @@ class ContactController extends Controller
 {
     //
     public function contact(){
-        $lienhe = DB::table('gioithieu')->select('id','diachi')->get();
-        return view('pages.contact',compact('lienhe'));
+        $lienhe = DB::table('gioithieu')->select('id','diachi','map')->get();
+        $quanly = DB::table('thongtinlienhe')->select('ten','email','sdt')->get();
+        return view('pages.contact',compact('lienhe','quanly'));
     }
     public function contractpost(Request $request){
         if($request->isMethod('POST')){

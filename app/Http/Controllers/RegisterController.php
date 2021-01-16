@@ -22,7 +22,8 @@ class RegisterController extends Controller
 {
     //
     public function register(){
-        return view('pages.register');
+        $gioithieu = DB::table('gioithieu')->select('id','diachi')->get();
+        return view('pages.register',compact('gioithieu'));
     }
     public function store(Request $request){
         if($request->isMethod('POST')) {

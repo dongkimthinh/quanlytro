@@ -39,13 +39,25 @@ class DichVuChungController extends Controller
         } else{
             $file_Name='nomane.jpg';
         }
+        // $anh = ",".''.implode(",",$arr);
+        // // dd($anh);
+        // if($anh == ","){
+        //     $anh = NULL;
+        // }
+        // if($request->anh==NULL){
+        //     $anh1 = NULL;
+        //     $anh = implode(",",$arr);
+        // } elseif($request->anh!=NULL){
+        //     $anh1 = implode(",",$request->anh);
+        // }
+
         $anh = ",".''.implode(",",$arr);
         if($anh == ","){
             $anh = NULL;
         }
         if($request->anh1==NULL){
-            $anh1=NULL
-            ;
+            $anh1=NULL;
+            $anh = implode(",",$arr);
         } else{
             $anh1=implode(",",$request->anh1);
         }

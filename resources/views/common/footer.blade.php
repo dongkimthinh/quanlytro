@@ -24,8 +24,19 @@
                     <div class="ft-contact">
                         <h6>Liên hệ</h6>
                         <ul>
-                            <li>0703 150 380 ( Mr.Thịnh )</li>
-                            <li>dongkimthinh123@gmail.com</li>
+                            @foreach($quanly as $key => $value)
+                                @php
+                                    $phone = str_replace(" ", "", $value->sdt);
+                                    if(strlen($phone)==10){
+                                        $kq = substr($phone, 0, 4) . " " . substr($phone, 4, 3) . " " . substr($phone, 7, 3);
+                                    } else{
+                                        $kq = substr($phone, 0, 4) . " " . substr($phone, 4, 4) . " " . substr($phone, 8, 3);
+                                    }
+                                @endphp
+                            <li>{{ $kq }}({{ $value->ten }})</li>
+                            <li>{{ $value->email }}</li>
+                            @endforeach
+
                             @php
                                 $stt = 0;
                             @endphp
@@ -76,7 +87,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i cl
 </footer>
 
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+{{-- <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -86,5 +97,5 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
-</script>
+</script> --}}
 <!--End of Tawk.to Script-->

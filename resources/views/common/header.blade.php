@@ -206,7 +206,7 @@
                                 <li><a href="{{ URL::to('/contact') }}">Liên Hệ</a></li>
                                 {{-- <li><i class="icon_search"></i></li>
                                 --}}
-                                <li>
+                                {{-- <li> --}}
                                     {{-- <form @method('post') <input class=""
                                         name="search" id="search" type="text" placeholder="Tìm kiếm">
                                         <button class="btn btn-primary"><span><i class="fas fa-search"
@@ -217,8 +217,8 @@
                                     {{-- <input type='button' id='hideshow'
                                         value='hide/show' class="btn btn-primary multi-select isselected" id="id">Đặt
                                     ngay</input> --}}
-                                    <button class="btn btn-primary" onclick="showOrHideDiv()">Đặt ngay</button>
-                                </li>
+                                    {{-- <button class="btn btn-primary" onclick="showOrHideDiv()">Đặt ngay</button>
+                                </li> --}}
                             </ul>
                         </nav>
                         {{-- <div class="nav-right search-switch">

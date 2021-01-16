@@ -99,7 +99,7 @@ class AppServiceProvider extends ServiceProvider
             $date = new DateTime();
             // dd($_SERVER["SERVER_ADDR"]);
             // if($_SERVER['DB_HOST']){
-                DB::table('online')->insert(['link'=>url()->full(),'ip'=>$_SERVER['SERVER_ADDR'],'os'=>$_SERVER['HTTP_USER_AGENT'],'ngay'=>$date->format('Y-m-d H:i:s')]);
+            DB::table('online')->insert(['link'=>url()->full(),'ip'=>$_SERVER['SERVER_ADDR'],'os'=>$_SERVER['HTTP_USER_AGENT'],'ngay'=>$date->format('Y-m-d H:i:s')]);
             // }
             $count = DB::table('online')->where( 'ngay', '>', Carbon::now()->subSeconds(60))->groupBy('os','ip')->get();
             $hieuung= HieuUngModel::where('trangthai', 'On')->first();
@@ -117,6 +117,25 @@ class AppServiceProvider extends ServiceProvider
             $gioithieu = DB::table('gioithieu')->get();
             $view->with('gioithieu',$gioithieu);
             $view->with('loai_sp',$loai_sp);
+        });
+        view()->composer('common.menu-mobile',function($view){
+            // session('custommername');
+            if(Auth::guard('taikhoan')->check()){
+                $id_kh = Auth::guard('taikhoan')->user()->id_kh;
+                $tenkh = DB::table('khachhang')->where('id_kh',$id_kh)->first();
+                // print_r($tenkh);
+                $gioithieu = DB::table('gioithieu')->select('id','diachi')->get();
+                $view->with('tenkh',$tenkh);
+                $view->with('gioithieu',$gioithieu);
+            }
+            $loai_sp= LoaiPhongModel::all();
+            $gioithieu = DB::table('gioithieu')->get();
+            $view->with('gioithieu',$gioithieu);
+            $view->with('loai_sp',$loai_sp);
+        });
+        view()->composer('common.footer',function($view){
+            $quanly = DB::table('thongtinlienhe')->select('ten','email','sdt')->get();
+            $view->with('quanly',$quanly);
         });
     }
 }

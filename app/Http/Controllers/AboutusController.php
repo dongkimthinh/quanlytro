@@ -30,6 +30,7 @@ class AboutusController extends Controller
                 'ten' => 'required',
                 'tieude' => 'required',
                 'noidung'=>'required',
+                'map' => 'required'
                 // 'magiamgia' =>'required',
                 // 'anh' =>'required|array'
             ]);
@@ -51,7 +52,7 @@ class AboutusController extends Controller
             } else{
                 $file_Name='nomane.jpg';
             }
-            DB::table('gioithieu')->insert(['diachi'=>$request->ten,'tieude'=>$request->tieude,'noidung'=>$request->noidung,'anh'=>implode(",",$arr),]);
+            DB::table('gioithieu')->insert(['diachi'=>$request->ten,'tieude'=>$request->tieude,'noidung'=>$request->noidung,'anh'=>implode(",",$arr),'map'=>$request->map]);
             return redirect()->back()->with('message','Thêm Thành Công');
         }
     }
@@ -101,6 +102,7 @@ class AboutusController extends Controller
                                                                             'tieude' => $request -> tieude,
                                                                             'noidung' => $request->noidung,
                                                                             'anh' => implode(",",$arr),
+                                                                            'map'=>$request->map
                                                                             ]);
             }
             else{
@@ -114,6 +116,7 @@ class AboutusController extends Controller
                                                                             'tieude' => $request -> tieude,
                                                                             'noidung' => $request->noidung,
                                                                             'anh' => $anh1.''.$anh,
+                                                                            'map'=>$request->map
                                                                             ]);
             }
                 // DB::table('gioithieu')->insert(['ten'=>$request->ten,'tieude'=>$request->tieude,'noidung'=>$request->noidung,'anh'=>implode(",",$arr),'magiamgia'=>$request->magiamgia]);

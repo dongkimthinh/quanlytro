@@ -76,7 +76,7 @@
     </section>
     <!-- About Us Page Section End -->
     <!-- Video Section Begin -->
-    <section class="video-section set-bg" data-setbg="{{ asset('public/img/video-bg.jpg') }}">
+    {{-- <section class="video-section set-bg" data-setbg="{{ asset('public/img/video-bg.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -85,12 +85,47 @@
                         {{-- <p>It S Hurricane Season But We Are Visiting Hilton Head Island</p> --}}
                         {{-- <a href="https://www.youtube.com/watch?v=EzKkl64rRbM" class="play-btn video-popup"><img
                                 src="{{ asset('public/img/play.png') }}" alt=""></a> --}}
+                    {{-- </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+    <!-- Video Section End -->
+
+
+    <section class="video-section set-bg" style="padding-top: 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="video-text" style="padding-top: 0px;">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a
+                                        href="#dc1" aria-controls="home" role="tab"
+                                        data-toggle="tab">18 Nguyễn Sáng,Phường Tây Thạnh,Quận Tân Phú, TP.HCM</a></li>
+                            <li role="presentation"><a href="#dc2" aria-controls="messages" role="tab" data-toggle="tab">31 Cống Lỡ, Phường 15, Quận Gò Vấp, TP.HCM</a>
+                            </li>
+                            <li role="presentation"><a href="#dc3" aria-controls="settings" role="tab" data-toggle="tab">17B Tân Trụ, Phường 15, Quận Tân Bình, TP.HCM</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="dc1">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.063756558014!2d106.62815801526047!3d10.806428961593074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752958610bf1e9%3A0x7f5c1379aaabb441!2zMTggTmd1eeG7hW4gU8OhbmcsIFTDonkgVGjhuqFuaCwgVMOibiBQaMO6LCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2sbd!4v1604373012788!5m2!1sen!2sbd" width="100%" height="500" style="border:0;" allowfullscreen=""></iframe>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="dc2">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8070176661618!2d106.6309396143273!3d10.826075661236784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175292460db017b%3A0x60b93c87c6865dc!2zMzEgQ-G7kW5nIEzhu6EsIFBoxrDhu51uZyAxNSwgVMOibiBCw6xuaCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1610710590730!5m2!1svi!2s" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="dc3">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.825841773909!2d106.6289571143273!3d10.824636361263074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752962c47ef0c5%3A0xea9ad52ac9dc408!2zMTdiIFTDom4gVHLhu6UsIFBoxrDhu51uZyAxNSwgVMOibiBCw6xuaCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1610710636121!5m2!1svi!2s" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Video Section End -->
+    <br>
+    <br>
+    <br>
 
     <!-- Gallery Section Begin -->
     <section class="gallery-section spad">

@@ -73,22 +73,21 @@
     </section>
     <!-- About Us Page Section End -->
     <!-- Video Section Begin -->
-    <section class="video-section set-bg" data-setbg="{{ asset('public/img/video-bg.jpg') }}">
+    <section class="video-section set-bg" style="padding-top: 0px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="video-text">
-                        <h2>Khám phá Khách sạn & Dịch vụ của Chúng tôi.</h2>
-                        {{-- <p>It S Hurricane Season But We Are Visiting Hilton Head Island</p>
-                        <a href="https://www.youtube.com/watch?v=EzKkl64rRbM" class="play-btn video-popup"><img
-                                src="{{ asset('public/img/play.png') }}" alt=""></a> --}}
+                    <div class="video-text" style="padding-top: 0px;height: 500px;">
+                        <?php echo html_entity_decode($gioithieu->map); ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Video Section End -->
-
+    <br>
+    <br>
+    <br>
     <!-- Gallery Section Begin -->
     {{--  <section class="gallery-section spad">
         <div class="container">

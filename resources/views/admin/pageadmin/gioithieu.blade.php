@@ -47,7 +47,7 @@
                                     {{-- <th>Status</th> --}}
                                     <th class="text-center">Nội Dung</th>
                                     <th class="text-center">Ảnh</th>
-                                    {{-- <th class="text-center">Mã Giảm Giá</th> --}}
+                                    <th class="text-center">Map</th>
                                     <th class="text-center">Hành Động</th>
                                 </tr>
                             </thead>
@@ -79,7 +79,7 @@
                                                 <img src="{{ asset('public/img/about/'.$key) }}" alt="" style="height:60px;width: 60px;">
                                                 @endforeach
                                             </td>
-                                            {{-- <td class="text-center" style="vertical-align: middle;">{{ $gt->magiamgia }}</td> --}}
+                                            <td class="text-center" style="vertical-align: middle;"><?php echo html_entity_decode($gt->map); ?></td>
                                             <td class="text-center" style="vertical-align: middle;">
                                                 <a href="#" data-toggle="modal"
                                                 data-target="#exampleModalCenter{{ $gt->id }}"
@@ -137,18 +137,18 @@
                                             required></textarea>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Ảnh</label>
                                         <input class="form-control" type="file" name="anh[]" multiple required>
                                     </div>
                                 </div>
-                                {{-- <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label>Mã giảm giá</label>
-                                        <input class="form-control" type="text" name="magiamgia" required>
+                                        <label>Map</label>
+                                        <textarea class="form-control" type="text" name="map"></textarea>
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -201,12 +201,12 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="col-lg-12">
+                            <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>Mã giảm giá</label>
-                                    <input class="form-control" type="text" name="magiamgia" value="{{ $gt->magiamgia }}" required>
+                                    <label>Map</label>
+                                    <textarea class="form-control" type="text" name="map">{{ $gt->map }}</textarea>
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Tên ảnh đã úp</label>
