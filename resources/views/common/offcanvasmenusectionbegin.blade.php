@@ -77,8 +77,19 @@
                         @endif
 
                     </label>
-                    <img src="{{ asset('public/img/about/cart.png') }}"
-                        style="zoom:5%;padding-bottom: 300px">
+                    <img class="custom-img-cart-off" src="{{ asset('public/img/about/cart.png') }}"
+                        style="zoom:5%;">
+                        <script>
+                            // Firefox 1.0+
+                            var isFirefox = typeof InstallTrigger !== 'undefined';
+                            if(isFirefox==true)
+                            {
+                                document.write('<style>.custom-img-cart-off{margin:unset;padding:unset;width:50px}</style>');
+                            }
+                            else{
+                                document.write('<style>.custom-img-cart-off{padding-bottom: 300px;}</style>');
+                            }
+                        </script>
                 </a>
             </div>
 

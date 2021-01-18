@@ -485,6 +485,7 @@
                     @endfor
                 </ul>
                 <div class="tab-content" style="height: 100%">
+                    
                     @for ($i = count($khungcanhdiachi) - 1; $i >= 0; $i--)
                         @php
                             $anhnoibat = explode(",",$khungcanhdiachi[$i]->anhnoibat);
@@ -518,7 +519,6 @@
                         </div>
                     @endfor
                 </div>
-
         </div>
     </section>
 

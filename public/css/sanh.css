@@ -1583,6 +1583,9 @@ and (max-device-width: 667px) {
   .header-section{
       display: none;
   }
+  .map{
+      height: unset;
+  }
 }
 
 @media (min-device-width: 350px)

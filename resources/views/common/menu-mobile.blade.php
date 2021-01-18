@@ -74,7 +74,18 @@
 
                                                         </label>
                                                         <img class="custom-img-cart" src="{{ asset('public/img/about/cart.png') }}"
-                                                            style="zoom:4%;padding-bottom: 300px">
+                                                            style="zoom:4%;">
+                                                            <script>
+                                                                // Firefox 1.0+
+                                                                var isFirefox = typeof InstallTrigger !== 'undefined';
+                                                                if(isFirefox==true)
+                                                                {
+                                                                    document.write('<style>.custom-img-cart{margin:unset;padding:unset;}</style>');
+                                                                }
+                                                                else{
+                                                                    document.write('<style>.custom-img-cart{padding-bottom: 300px;}</style>');
+                                                                }
+                                                            </script>
                                                             </a>
                                                 </div>
                                             </li>
