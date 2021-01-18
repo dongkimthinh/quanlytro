@@ -19,7 +19,7 @@
                                 @foreach ($lienhe as $key => $value)
                                     <tr>
                                         @for ($i = 0; $i < count($lienhe); $i++)
-                                            <td class="c-o">Chi Nhánh {{ $stt = $stt + 1 }}:</td>
+                                            <td class="c-o">CN {{ $stt = $stt + 1 }}:</td>
                                             @break
                                         @endfor
                                         <td>{{ $value->diachi }}</td>
@@ -37,7 +37,7 @@
                                     @endphp
                                     <tr>
                                         <td class="c-o">ĐT:</td>
-                                        <td>{{ $kq }}({{ $value->ten }})</td>
+                                        <td>{{ $kq }} ( {{ $value->ten }} )</td>
                                     </tr>
                                 @endforeach
                                 @foreach ($quanly as $key => $value)

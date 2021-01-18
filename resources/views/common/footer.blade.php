@@ -24,6 +24,9 @@
                     <div class="ft-contact">
                         <h6>Liên hệ</h6>
                         <ul>
+                            @php
+                                $sdt = 0;
+                            @endphp
                             @foreach($quanly as $key => $value)
                                 @php
                                     $phone = str_replace(" ", "", $value->sdt);
@@ -33,8 +36,8 @@
                                         $kq = substr($phone, 0, 4) . " " . substr($phone, 4, 4) . " " . substr($phone, 8, 3);
                                     }
                                 @endphp
-                            <li>{{ $kq }}({{ $value->ten }})</li>
-                            <li>{{ $value->email }}</li>
+                            <li>SĐT : {{ $kq }} ( {{ $value->ten }} )</li>
+                            <li>Email : {{ $value->email }}</li>
                             @endforeach
 
                             @php
@@ -42,7 +45,7 @@
                             @endphp
                             @foreach($gioithieu as $key => $value)
                                 @for($i=0;$i<count($gioithieu);$i++)
-                                    <li>Chi Nhánh {{ $stt=$stt+1 }}:{{ $value->diachi }}</li>
+                                    <li>CN {{ $stt=$stt+1 }} : {{ $value->diachi }}</li>
                                     @break
                                 @endfor
                             @endforeach

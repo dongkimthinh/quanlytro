@@ -1044,7 +1044,53 @@ var no=100;var hidesnowtime=0;var snowdistance='pageheight';var ie4up=(document.
             });
         });
     </script>
-
+    <script type="text/javascript">
+        $(function(){
+            $('#quenmatkhau1').on('click',function(){
+                var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+                var _token = $('input[name="_token"]').val();
+                {{-- console.log( pattern.test($('#email').val())); --}}
+                if($('#email1').val()==''){
+                    $("#mess1").html('Bạn hãy điền số điện thoại hoặc email!');
+                } else{
+                    if(pattern.test($('#email1').val())==true){
+                        var email = $('#email1').val();
+                        $.ajax({
+                            url:"{{ route('forgetpassword') }}",
+                            type:"POST",
+                            data:{email:email,_token:_token},
+                            success:function(data){
+                                console.log(data);
+                                $("#mess1").html('Vui lòng kiểm tra mail!');
+                            }
+                        });
+                    } else {
+                        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+                        var mobile = $('#email1').val();
+                        if(mobile !==''){
+                            if (vnf_regex.test(mobile) == false)
+                            {
+                                $("#mess1").html('Số điện thoại hoặc mật khẩu không chính xác!')
+                            }else{
+                                var sdt = $('#email1').val();
+                                {{-- $("#mess1").html('Số điện thoại của bạn hợp lệ!'); --}}
+                                $.ajax({
+                                    url:"{{ route('forgetpassword') }}",
+                                    type:"POST",
+                                    data:{sdt:sdt,_token:_token},
+                                    success:function(data){
+                                        $("#mess1").html('Vui lòng kiểm tra tin nhắn điện thoại!');
+                                    }
+                                });
+                            }
+                        }else{
+                            $("#mess1").html('Số điện thoại hoặc mật khẩu không chính xác!');
+                        }
+                    }
+                }
+            });
+        });
+    </script>
     <script src="{{ asset('public/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('public/js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>

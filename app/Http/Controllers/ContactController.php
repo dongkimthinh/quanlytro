@@ -42,7 +42,10 @@ class ContactController extends Controller
                 'sdt' => $request->sdt,
                 'noidung' => $request->noidung
             ];
-            Mail::to('dongkimthinh123@gmail.com')->send(new \App\Mail\ContactMail($details));
+            $mail = DB::table('thongtinlienhe')->select('email')->get();
+            foreach($mail as $v){
+                Mail::to($v->email)->send(new \App\Mail\ContactMail($details));
+            }
             return redirect()->back()->with('message','Gủi Thông Tin Thành Công');
         }
     }

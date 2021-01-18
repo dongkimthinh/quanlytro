@@ -72,8 +72,6 @@
                     <div class="table-responsive">
                         <div class="card-body">
                         <div>
-
-                        </div>
                         <table class="table align-items-center table-flush"  id="dataTable">
                             <thead class="thead-light">
                                 <tr>
