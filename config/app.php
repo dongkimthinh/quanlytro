@@ -177,7 +177,6 @@ return [
 
         //Test OTP
         Nexmo\Laravel\NexmoServiceProvider::class,
-
     ],
 
     /*

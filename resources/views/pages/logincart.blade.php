@@ -14,19 +14,40 @@
                             labore et dolore magna aliqua.</p> -->
                         <table>
                             <tbody>
-                                <tr>
-                                    <td class="c-o">Address:</td>
-                                    <td>18 Nguyễn Sáng,Tây Thạnh,Tân Phú</td>
-                                </tr>
-                                <tr>
-                                    <td class="c-o">Phone:</td>
-                                    <td>0703 150 380</td>
-                                </tr>
-                                <tr>
-                                    <td class="c-o">Email:</td>
-                                    <td>dongkimthinh123@gmail.com</td>
-                                </tr>
+                                @php
+                                $stt = 0;
+                                @endphp
+                                @foreach ($lienhe as $key => $value)
+                                    <tr>
+                                        @for ($i = 0; $i < count($lienhe); $i++)
+                                            <td class="c-o">Chi Nhánh {{ $stt = $stt + 1 }}:</td>
+                                            @break
+                                        @endfor
+                                        <td>{{ $value->diachi }}</td>
+                                    </tr>
 
+                                @endforeach
+                                @foreach ($quanly as $key => $value)
+                                    @php
+                                    $phone = str_replace(" ", "", $value->sdt);
+                                    if(strlen($phone)==10){
+                                    $kq = substr($phone, 0, 4) . " " . substr($phone, 4, 3) . " " . substr($phone, 7, 3);
+                                    } else{
+                                    $kq = substr($phone, 0, 4) . " " . substr($phone, 4, 4) . " " . substr($phone, 8, 3);
+                                    }
+                                    @endphp
+                                    <tr>
+                                        <td class="c-o">ĐT:</td>
+                                        <td>{{ $kq }}({{ $value->ten }})</td>
+                                    </tr>
+                                @endforeach
+                                @foreach ($quanly as $key => $value)
+
+                                    <tr>
+                                        <td class="c-o">Email:</td>
+                                        <td>{{ $value->email }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -76,7 +97,28 @@
                 </div>
             </div>
             <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.063756558014!2d106.62815801526047!3d10.806428961593074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752958610bf1e9%3A0x7f5c1379aaabb441!2zMTggTmd1eeG7hW4gU8OhbmcsIFTDonkgVGjhuqFuaCwgVMOibiBQaMO6LCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2sbd!4v1604373012788!5m2!1sen!2sbd" height="470" style="border:0;" allowfullscreen=""></iframe>
+                <ul class="nav nav-tabs" role="tablist">
+                    @for ($i = count($lienhe) - 1; $i >= 0; $i--)
+                        <li role="presentation" class="{{ $i == count($lienhe) - 1 ? 'active' : '' }}">
+                            <a href="#dc{{ $i }}" aria-controls="home" role="tab"
+                                data-toggle="tab">{{ $lienhe[$i]->diachi }}</a>
+                        </li>
+                    @endfor
+                    {{-- <li role="presentation"><a href="#dc2" aria-controls="messages"
+                            role="tab" data-toggle="tab">31 Cống Lỡ, Phường 15, Quận Gò Vấp, TP.HCM</a>
+                    </li>
+                    <li role="presentation"><a href="#dc3" aria-controls="settings" role="tab" data-toggle="tab">17B Tân
+                            Trụ, Phường 15, Quận Tân Bình, TP.HCM</a>
+                    </li> --}}
+                </ul>
+                <div class="tab-content" style="height: 100%">
+                    @for ($i = count($lienhe) - 1; $i >= 0; $i--)
+                        <div role="tabpanel" style="height: 100%" class="tab-pane {{ $i == count($lienhe) - 1 ? 'active' : '' }}"
+                            id="dc{{ $i }}">
+                            <?php echo html_entity_decode($lienhe[$i]->map); ?>
+                        </div>
+                    @endfor
+                </div>
             </div>
         </div>
     </section>

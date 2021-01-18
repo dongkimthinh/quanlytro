@@ -30,6 +30,7 @@ use App\Models\SlideModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 
@@ -123,6 +124,13 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/login',[LoginController::class,'showlogin'])->name('login');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+Route::get('checkpass/{id?}',[LoginController::class,'checkpass'])->name('checkpass');
+Route::post('postcheckpass/{id?}',[LoginController::class,'postcheckpass'])->name('postcheckpass');
+
+
+Route::post('forgetpassword',[LoginController::class,'forgetpassword'])->name('forgetpassword');
+
+
 
 Route::post('/login',[LoginController::class,'login'])->name('loginpost');
 
@@ -177,7 +185,10 @@ Route::get('online',function(){
 })->name('online');
 
 Route::get('logincart',function(){
-    return view('pages.logincart');
+    $lienhe = DB::table('gioithieu')->select('id','diachi','map')->get();
+        // $gioithieu = DB::table('gioithieu')->select('id','diachi')->get();
+    $quanly = DB::table('thongtinlienhe')->select('ten','email','sdt')->get();
+    return view('pages.logincart',compact('lienhe','quanly'));
 })->name('logincart');
 Route::post('logincart',function(Request $request){
     if($request->isMethod('POST')){
@@ -220,3 +231,4 @@ Route::get('diachi/{diachi?}',function($diachi){
     return redirect()->route('cart');
 })->name('diachi');
 Route::get('api',[ApiController::class,'getAPI'])->name('getAPI');
+

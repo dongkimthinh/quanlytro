@@ -46,7 +46,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" name="password" value="123123" id="password" type="password" placeholder="Password">
+                        <input class="form-control form-control-lg" name="password" value="123456789" id="password" type="password" placeholder="Password">
                         @error('username')
                             {{ $message }}
                         @enderror

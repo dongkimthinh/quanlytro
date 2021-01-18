@@ -476,53 +476,49 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="{{ asset('public/slide/IMG_0019.jpg') }}">
-                        <div class="bi-text">
-                            {{-- <span class="b-tag">Travel Trip</span> --}}
-                            <h4><a href="#">17B, Tân Trụ, Quận Tân Bình</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 15th April, 2019</div>
+                <ul class="nav nav-tabs" role="tablist">
+                    @for ($i = count($khungcanhdiachi) - 1; $i >= 0; $i--)
+                        <li role="presentation" class="{{ $i == count($khungcanhdiachi) - 1 ? 'active' : '' }}">
+                            <a href="#noibat{{ $i }}" aria-controls="home" role="tab"
+                                data-toggle="tab">{{ $khungcanhdiachi[$i]->diachi }}</a>
+                        </li>
+                    @endfor
+                </ul>
+                <div class="tab-content" style="height: 100%">
+                    @for ($i = count($khungcanhdiachi) - 1; $i >= 0; $i--)
+                        @php
+                            $anhnoibat = explode(",",$khungcanhdiachi[$i]->anhnoibat);
+                        @endphp
+                        <div role="tabpanel" style="height: 100%" class="tab-pane {{ $i == count($khungcanhdiachi) - 1 ? 'active' : '' }}"
+                            id="noibat{{ $i }}">
+                                @for($j=0;$j<count($anhnoibat); $j++)
+                                    @if($j==count($anhnoibat)-2)
+                                        <div class="col-lg-8">
+                                            <div class="blog-item set-bg" data-setbg="{{ asset('public/khungcanhvaanhnoibat/'.$anhnoibat[$j]) }}">
+                                                <div class="bi-text">
+                                                    <h4><a href="#">{{ $khungcanhdiachi[$i]->diachi }}</a></h4>
+                                                    <div class="b-time"><i class="icon_clock_alt"></i> {{ date("d-m-Y H:i:s", strtotime($khungcanhdiachi[$i]->created_at)) }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @php
+                                            $j=count($anhnoibat)-2;
+                                        @endphp
+                                    @else
+                                        <div class="col-lg-4">
+                                            <div class="blog-item set-bg" data-setbg="{{ asset('public/khungcanhvaanhnoibat/'.$anhnoibat[$j]) }}">
+                                                <div class="bi-text">
+                                                    <h4><a href="#">{{ $khungcanhdiachi[$i]->diachi }}</a></h4>
+                                                    <div class="b-time"><i class="icon_clock_alt"></i> {{ date("d-m-Y H:i:s", strtotime($khungcanhdiachi[$i]->created_at)) }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endfor
                         </div>
-                    </div>
+                    @endfor
                 </div>
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="{{ asset('public/slide/b48e9c6b2541d41f8d507.jpg') }}">
-                        <div class="bi-text">
-                            {{-- <span class="b-tag">Camping</span> --}}
-                            <h4><a href="#">17B, Tân Trụ, Quận Tân Bình</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 15th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="{{ asset('public/slide/e80465dddcf72da974e65.jpg') }}">
-                        <div class="bi-text">
-                            {{-- <span class="b-tag">Event</span> --}}
-                            <h4><a href="#">17B, Tân Trụ, Quận Tân Bình</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 21th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="blog-item small-size set-bg" data-setbg="{{ asset('public/slide/0a2cf0ff49d5b88be1c42.jpg') }}">
-                        <div class="bi-text">
-                            {{-- <span class="b-tag">Event</span> --}}
-                            <h4><a href="#">17B, Tân Trụ, Quận Tân Bình</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 08th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog-item small-size set-bg" data-setbg="{{ asset('public/slide/af8b6e59d773262d7f623.jpg') }}">
-                        <div class="bi-text">
-                            {{-- <span class="b-tag">Travel</span> --}}
-                            <h4><a href="#">17B, Tân Trụ, Quận Tân Bình</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 12th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
 

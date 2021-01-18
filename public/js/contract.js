@@ -56,8 +56,6 @@ $('.nav-tabs a').click(function(){
             $(document).ready(function(){
             $(".mul-select").select2({
                     placeholder: "Chọn trang thiết bị", //placeholder
-                    tags: true,
-                    tokenSeparators: ['/',',',';'," "]
                 });
             })
             $(document).ready(function() {

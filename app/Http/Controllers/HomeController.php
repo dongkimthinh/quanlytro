@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\LoaiPhongModel;
 use App\Models\PhongModel;
 use App\Models\SlideModel;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -18,10 +19,10 @@ class HomeController extends Controller
         $phong = PhongModel::all();
         // $maxslide = SlideModel::max('id_slide');
         $dichvu = DichVuModel::all();
-
-        // $slide = SlideModel::where('id_slide', $maxslide)->first();
+        $khungcanhdiachi = DB::table('khungcanhvaanhnoibat')->join('gioithieu','khungcanhvaanhnoibat.id_dc','=','gioithieu.id')->select('khungcanhvaanhnoibat.anhnoibat','diachi','khungcanhvaanhnoibat.created_at')->get();
+        // dd($khungcanhdiachi);
         $slide =SlideModel::all();
-        return view('pages.home',compact('loaiphong','phong','slide','dichvu'));
+        return view('pages.home',compact('loaiphong','phong','slide','dichvu','khungcanhdiachi'));
     }
     public function khachhangadmin(){
         $khachhang = KhachHangModel::join('taikhoan','taikhoan.id_kh','=','khachhang.id_kh')->get();

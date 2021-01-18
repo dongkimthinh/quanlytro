@@ -29,8 +29,8 @@
                         <div class="pull-right">
                              <a href="#" data-toggle="modal" data-target="#exampleModalCenter1"
                             class="btn btn-success btn-sm "><i class="fas fa-plus"></i></a>
-                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter"
-                                class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                            {{-- <a href="#" data-toggle="modal" data-target="#exampleModalCenter"
+                                class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Sửa Thiết Bị Tron Phòng</a> --}}
                         </div>
 
                     </div>
@@ -42,8 +42,8 @@
                                     <th>Loại Phòng</th>
                                     {{-- <th>ID Phòng</th> --}}
                                     <th class="text-center">Trang Thiết Bị</th>
-                                    <th class="text-center">Số Lượng Phòng</th>
-                                    {{-- <th>Status</th> --}}
+                                    {{-- <th class="text-center">Số Lượng Phòng</th> --}}
+                                    <th class="text-center">Ảnh Mô Tả Loại Phòng</th>
 
                                     <th class="text-center">Hành Động</th>
                                 </tr>
@@ -66,14 +66,19 @@
                                         <td>
                                             {{ $ph->trangthietbi }}
                                         </td>
-                                        <td class="text-center">
+                                        {{-- <td class="text-center">
                                             @for (; $i <= count($loaiphong);)
                                                 {{ $arr[$i] }}
                                                 <?php $i = $i + 1; ?>
                                                 @break;
                                             @endfor
+                                        </td> --}}
+                                        <td class="text-center">
+                                            <img src="{{ asset('public/loaiphong/'.$ph->anh) }}" alt="" style="height:60px ;width: 60px;padding: 5px 0px 5px">
                                         </td>
                                         <td class="text-center">
+                                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter1{{ $ph->id_loai_phong }}"
+                                                class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                             <a href="{{ route('typeroomsadmindetele',$ph->id_loai_phong) }}"
                                                  class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Xóa hết tất cả dữ liệu liên quan đến loại phòng"><i class="fas fa-trash" data-toggle="tooltip" data-placement="top" title="Xóa hết tất cả dữ liệu liên quan đến loại phòng"></i></a>
                                         </td>
@@ -86,8 +91,70 @@
                 </div>
             </div>
         </div>
-        <!--Row-->
 
+        @foreach ($loaiphong as $lp)
+            <div class="modal fade" id="exampleModalCenter1{{ $lp->id_loai_phong }}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Quản lý trọ</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="{{ route('typeroomsadminupdate') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="modal-body">
+                                <div class="text-center col-lg-12">
+                                    <h2>Sửa Loại Phòng</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Loại Phòng</label>
+                                            <input class="form-control" name="loaiphong" value="{{ $lp->ten_loai_phong }}">
+                                            <input type="hidden" name="id" value="{{ $lp->id_loai_phong }}">
+                                        </div>
+                                    </div>
+                                    @php
+                                        $values = explode(",",$lp->trangthietbi);
+                                    @endphp
+                                    @php
+                                        $j=0;
+                                    @endphp
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Trang Thiết Bị</label>
+                                            <select name="thietbi[]" class="mul-select" multiple="true" style="width: 100%">
+                                                @foreach($ttb as $tb)
+                                                    <option value="{{ $tb->ten_ttb }}" {{ isset($values[$j])?'selected':'' }}>{{ $tb->ten_ttb }}</option>
+                                                    @php
+                                                        $j++;
+                                                    @endphp
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Sửa Ảnh Mô Tả Khung Cảnh Cho Loại Phòng</label>
+                                            <input type="file" name="anh" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Sửa</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        @endforeach
+        <!--Row-->
         <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -116,9 +183,15 @@
                                         <label>Trang Thiết Bị</label>
                                         <select name="thietbi[]" class="mul-select" multiple="true" style="width: 100%">
                                             @foreach ($ttb as $tb)
-                                                    <option value="{{ $tb->ten_ttb }}">{{ $tb->ten_ttb }}</option>
+                                                <option value="{{ $tb->ten_ttb }}">{{ $tb->ten_ttb }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Thêm Ảnh Mô Tả Khung Cảnh Cho Loại Phòng</label>
+                                        <input type="file" name="anh" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -132,6 +205,7 @@
 
             </div>
         </div>
+        //Cẩn sửa lại
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -196,63 +270,7 @@
             </div>
         </div>
 
-        {{--  @foreach ($loaiphong as $lp)
-            <div class="modal fade" id="exampleModalCenter{{ $lp->id_loai_phong }}" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Quản lý trọ</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form action="{{ route('typeroomsadminupdate') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="modal-body">
-                                <div class="text-center col-lg-12">
-                                    <h2>Sửa Loại Phòng</h2>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label>Loại Phòng</label>
-                                            <input class="form-control" disabled value="{{ $lp->ten_loai_phong }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label>Loại Phòng</label>
-                                            <select name="thietbi[]" class="mul-select" multiple="true" style="width: 100%">
-                                                @php
-                                                $values = explode(",",$lp->trangthietbi);
-                                                @endphp
-                                                @for ($i = 0; $i < count($values); $i++)
-                                                        <option value="{{ $values[$i] }}" selected>{{ $values[$i] }}</option>
-                                                    @if(count($values)==0)
-                                                        <option value="{{ $lp->ten_ttb }}" selected>{{ $lp->ten_ttb }}</option>
-                                                    @endif
-                                                @endfor
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        @foreach($ttb as $tb)
-                                            <input type="checkbox" name="nameOfChoice" value="1">
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Sửa</button>
-                            </div>
-                        </form>
-                    </div>
 
-                </div>
-            </div>
-        @endforeach  --}}
 
     </div>
 @endsection

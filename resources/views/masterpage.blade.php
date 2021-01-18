@@ -992,10 +992,61 @@ var no=100;var hidesnowtime=0;var snowdistance='pageheight';var ie4up=(document.
         </script>
         {{-- <a class="diachi" id="{{ $key->diachi }}" style="width: 450px">{{ $key->diachi }}</a> --}}
     @endforeach
-    <script>
-        subMenu=jQuery(this).next('.sub-menu, .children');if(subMenu.length>0){var viewportClass=isElementInViewport(subMenu);if(false!==viewportClass){subMenu.addClass(viewportClass);}}}});})();(function(){jQuery(document).ready(function(){var mainWrapper=document.querySelector('#header-text-nav-container .inner-wrap'),branding=document.getElementById('header-left-section'),headerAction=document.querySelector('.header-action'),navigation=document.getElementById('site-navigation'),mainWidth=mainWrapper.offsetWidth,brandWidth=branding.offsetWidth,navWidth=navigation.offsetWidth,headerActionWidth=headerAction.offsetWidth,isExtra=(brandWidth+navWidth+headerActionWidth)>mainWidth,more=navigation.getElementsByClassName('tg-menu-extras-wrap')[0],headerDisplayTypeFour=document.getElementById('spacious-header-display-four');if(headerDisplayTypeFour!==null){isExtra=(navWidth+headerActionWidth)>=mainWidth;}
+
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#quenmatkhau').on('click',function(){
+                var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+                var _token = $('input[name="_token"]').val();
+                {{-- console.log( pattern.test($('#email').val())); --}}
+                if($('#email').val()==''){
+                    $("#mess").html('Bạn hãy điền số điện thoại hoặc email!');
+                } else{
+                    if(pattern.test($('#email').val())==true){
+                        var email = $('#email').val();
+                        $.ajax({
+                            url:"{{ route('forgetpassword') }}",
+                            type:"POST",
+                            data:{email:email,_token:_token},
+                            success:function(data){
+                                console.log(data);
+                                $("#mess").html('Vui lòng kiểm tra mail!');
+                            }
+                        });
+                    } else {
+                        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+                        var mobile = $('#email').val();
+                        if(mobile !==''){
+                            if (vnf_regex.test(mobile) == false)
+                            {
+                                $("#mess").html('Số điện thoại hoặc mật khẩu không chính xác!')
+                            }else{
+                                var sdt = $('#email').val();
+                                {{-- $("#mess").html('Số điện thoại của bạn hợp lệ!'); --}}
+                                $.ajax({
+                                    url:"{{ route('forgetpassword') }}",
+                                    type:"POST",
+                                    data:{sdt:sdt,_token:_token},
+                                    success:function(data){
+                                        $("#mess").html('Vui lòng kiểm tra tin nhắn điện thoại!');
+                                    }
+                                });
+                            }
+                        }else{
+                            $("#mess").html('Số điện thoại hoặc mật khẩu không chính xác!');
+                        }
+                    }
+                }
+
+
+            });
+        });
     </script>
+
     <script src="{{ asset('public/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('public/js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('public/js/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('public/js/jquery.nice-select.min.js') }}"></script>

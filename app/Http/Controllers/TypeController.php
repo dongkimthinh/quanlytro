@@ -44,11 +44,11 @@ class TypeController extends Controller
         // dd($ttb);
         // $loaiphong= DB::table('phong')->join('loai_phong','loai_phong.id_loai_phong','=','phong.id_loai_phong')
         // ->join('trang_thiet_bi','trang_thiet_bi.id_ttb','=','loai_phong.id_ttb')->get();
-        $ttb = TrangThietBiModel::all();
+        $ttb = DB::table('trang_thiet_bi')->get();
         // dd($ttb);
         $thietbi = LoaiPhongModel::select('trangthietbi')->get();
         // dd($thietbi);
-        return view('admin.pageadmin.typeroom',compact('loaiphong','arr','ttb','thietbi'));
+        return view('admin.pageadmin.typeroom',compact('loaiphong','arr','thietbi','ttb'));
     }
     public function typeroomsadminadd(Request $request){
         if($request->isMethod('POST')){
@@ -62,30 +62,31 @@ class TypeController extends Controller
                 ->withInput();
             }
         }
-        $arr = array();
-        // for($i=0;$i<count($request->thietbi);$i++){
-        //     array_push($arr,$request->thietbi);
-
-        //     print_r( key($request[$i] -> thietbi));
-        //
-        // }
-        // print_r($request->thietbi);
-        // $a = $request -> thietbi;
-        // $str = implode(',',$a);
-        // echo ;
-        // print_r($request->thietbi);
+        // $arr = array();
+        if($request->hasFile('anh')){
+            // $file = $request->anh('anh');
+            // $file_Name = time().'_'. $file->getClientOriginalName();
+            // $file -> move(public_path('img/userimg'),$file_Name);
+            $file = $request -> anh;
+            $file_Name = $file->getClientOriginalName();
+            $file->move('public/loaiphong',$file_Name);
+        } else{
+            $file_Name='nomane.jpg';
+        }
         $loaiphong = new LoaiPhongModel();
         $loaiphong->ten_loai_phong = $request->loaiphong;
         $loaiphong->trangthietbi = implode(',',$request -> thietbi);
+        $loaiphong->anh =$file_Name;
         $loaiphong->save();
         // LoaiPhongModel::where('ten_loai_phong', $request->tenphong)->update(['trangthietbi'=>implode(',',$request -> thietbi)]);
-        return redirect()->route('typeroomsadmin')->with('message','Thêm Thiết Bị Thành Công');
+        return redirect()->route('typeroomsadmin')->with('message','Thêm Phòng Và Thiết Bị Thành Công');
     }
     public function typeroomsadminupdate(Request $request){
         if($request->isMethod('POST')){
             $validator = Validator::make($request->all(),[
-                'tenphong' => 'required',
-                'thietbi' =>'required|array',
+                'id' => 'required',
+                'loaiphong' => 'required',
+                'thietbi' =>'required',
             ]);
         if($validator->fails()){
             return redirect()->back()
@@ -93,20 +94,20 @@ class TypeController extends Controller
                 ->withInput();
             }
         }
-        $arr = array();
-        // for($i=0;$i<count($request->thietbi);$i++){
-        //     array_push($arr,$request->thietbi);
+        if($request->hasFile('anh')){
+            $file = $request -> anh;
+            $file_Name = $file->getClientOriginalName();
+            $file->move('public/loaiphong',$file_Name);
+        } else{
+            $file_Name='nomane.jpg';
+        }
+        // dd($file_Name);
 
-        //     print_r( key($request[$i] -> thietbi));
-        //
-        // }
-        // $a = $request -> thietbi;
-        // $str = implode(',',$a);
-        // echo ;
-        // print_r($request->thietbi);
-
-        LoaiPhongModel::where('ten_loai_phong', $request->tenphong)->update(['trangthietbi'=>implode(',',$request -> thietbi)]);
-        return redirect()->route('typeroomsadmin')->with('message','Chỉnh sửa Thiết Bị Thành Công');
+        LoaiPhongModel::where('id_loai_phong',$request->id)->update([
+            'ten_loai_phong'=>$request->loaiphong,
+            'trangthietbi'=>implode(',',$request->thietbi),
+            'anh'=>$file_Name]);
+        return redirect()->route('typeroomsadmin')->with('message','Sửa Thành Công');
     }
     public function typeroomsadmindetele($id){
         $loai =  LoaiPhongModel::where('id_loai_phong', $id)->delete();
