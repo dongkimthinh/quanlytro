@@ -143,37 +143,73 @@
                     </div>
                 </div>
             </div>
+            @php
+                $khungcanhdiachi = DB::table('khungcanhvaanhnoibat')->where('id_dc',request()->route('id'))->join('gioithieu','khungcanhvaanhnoibat.id_dc','=','gioithieu.id')->select('khungcanhvaanhnoibat.anhkhungcanhdiachitheoloai')->first();
+
+                $arr = explode(",",$khungcanhdiachi->anhkhungcanhdiachitheoloai);
+                $kt = 0;
+            @endphp
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="gallery-item set-bg" data-setbg="{{ asset('public/hinhtro/95f81869ce433f1d6652.jpg') }}">
-                        <div class="gi-text">
-                            <h3>Phòng Cao Cấp</h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="gallery-item set-bg" data-setbg="{{ asset('public/hinhtro/96a85235841f75412c0e.jpg') }}">
+                @for ($i = 0; $i < count($arr); $i++)
+                    @if($kt==$i)
+                        <div class="col-lg-6">
+                            <div class="gallery-item set-bg" data-setbg="{{ asset('public/khungcanhvaanhnoibat/'.$arr[$i]) }}">
                                 <div class="gi-text">
-                                    <h3>Phòng Chuẩn</h3>
+                                    <h3>Phòng Cao Cấp</h3>
+                                </div>
+                            </div>
+                            @php
+                                $i++;
+                            @endphp
+                            @if($i==count($arr)-1)
+                                @break
+                            @endif
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="gallery-item set-bg" data-setbg="{{ asset('public/khungcanhvaanhnoibat/'.$arr[$i]) }}">
+                                        <div class="gi-text">
+                                            <h3>Phòng Chuẩn</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                @if($i==count($arr)-1)
+                                    @break
+                                @endif
+                                @php
+                                    $i++;
+                                @endphp
+
+                                <div class="col-sm-6">
+                                    <div class="gallery-item set-bg" data-setbg="{{ asset('public/khungcanhvaanhnoibat/'.$arr[$i]) }}">
+                                        <div class="gi-text">
+                                            <h3>Phòng Trung</h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="gallery-item set-bg" data-setbg="{{ asset('public/hinhtro/d9bc552f8305725b2b14.jpg') }}">
-                                <div class="gi-text">
-                                    <h3>Phòng Trung</h3>
-                                </div>
+                        @if($i==count($arr)-1)
+                            @break
+                        @endif
+                        @php
+                            $kt = $i;
+                            $i++;
+                        @endphp
+                    @endif
+                    <div class="col-lg-6">
+                        <div class="gallery-item large-item set-bg" data-setbg="{{ asset('public/khungcanhvaanhnoibat/'.$arr[$i]) }}">
+                            <div class="gi-text">
+                                <h3>Phòng Thường</h3>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="gallery-item large-item set-bg" data-setbg="{{ asset('public/hinhtro/d9bc552f8305725b2b14.jpg') }}">
-                        <div class="gi-text">
-                            <h3>Phòng Thường</h3>
-                        </div>
-                    </div>
-                </div>
+                    @php
+                        $kt=$i+1;
+                    @endphp
+                    @if($i==count($arr)-1)
+                        @break
+                    @endif
+                @endfor
             </div>
         </div>
     </section>

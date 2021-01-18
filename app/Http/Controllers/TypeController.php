@@ -63,20 +63,20 @@ class TypeController extends Controller
             }
         }
         // $arr = array();
-        if($request->hasFile('anh')){
-            // $file = $request->anh('anh');
-            // $file_Name = time().'_'. $file->getClientOriginalName();
-            // $file -> move(public_path('img/userimg'),$file_Name);
-            $file = $request -> anh;
-            $file_Name = $file->getClientOriginalName();
-            $file->move('public/loaiphong',$file_Name);
-        } else{
-            $file_Name='nomane.jpg';
-        }
+        // if($request->hasFile('anh')){
+        //     // $file = $request->anh('anh');
+        //     // $file_Name = time().'_'. $file->getClientOriginalName();
+        //     // $file -> move(public_path('img/userimg'),$file_Name);
+        //     $file = $request -> anh;
+        //     $file_Name = $file->getClientOriginalName();
+        //     $file->move('public/loaiphong',$file_Name);
+        // } else{
+        //     $file_Name='nomane.jpg';
+        // }
         $loaiphong = new LoaiPhongModel();
         $loaiphong->ten_loai_phong = $request->loaiphong;
         $loaiphong->trangthietbi = implode(',',$request -> thietbi);
-        $loaiphong->anh =$file_Name;
+        // $loaiphong->anh =$file_Name;
         $loaiphong->save();
         // LoaiPhongModel::where('ten_loai_phong', $request->tenphong)->update(['trangthietbi'=>implode(',',$request -> thietbi)]);
         return redirect()->route('typeroomsadmin')->with('message','Thêm Phòng Và Thiết Bị Thành Công');
@@ -94,19 +94,19 @@ class TypeController extends Controller
                 ->withInput();
             }
         }
-        if($request->hasFile('anh')){
-            $file = $request -> anh;
-            $file_Name = $file->getClientOriginalName();
-            $file->move('public/loaiphong',$file_Name);
-        } else{
-            $file_Name='nomane.jpg';
-        }
+        // if($request->hasFile('anh')){
+        //     $file = $request -> anh;
+        //     $file_Name = $file->getClientOriginalName();
+        //     $file->move('public/loaiphong',$file_Name);
+        // } else{
+        //     $file_Name='nomane.jpg';
+        // }
         // dd($file_Name);
 
         LoaiPhongModel::where('id_loai_phong',$request->id)->update([
             'ten_loai_phong'=>$request->loaiphong,
-            'trangthietbi'=>implode(',',$request->thietbi),
-            'anh'=>$file_Name]);
+            'trangthietbi'=>implode(',',$request->thietbi)]);
+            // 'anh'=>$file_Name
         return redirect()->route('typeroomsadmin')->with('message','Sửa Thành Công');
     }
     public function typeroomsadmindetele($id){

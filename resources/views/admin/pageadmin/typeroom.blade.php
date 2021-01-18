@@ -43,7 +43,7 @@
                                     {{-- <th>ID Phòng</th> --}}
                                     <th class="text-center">Trang Thiết Bị</th>
                                     {{-- <th class="text-center">Số Lượng Phòng</th> --}}
-                                    <th class="text-center">Ảnh Mô Tả Loại Phòng</th>
+                                    {{-- <th class="text-center">Ảnh Mô Tả Loại Phòng</th> --}}
 
                                     <th class="text-center">Hành Động</th>
                                 </tr>
@@ -73,9 +73,9 @@
                                                 @break;
                                             @endfor
                                         </td> --}}
-                                        <td class="text-center">
+                                        {{-- <td class="text-center">
                                             <img src="{{ asset('public/loaiphong/'.$ph->anh) }}" alt="" style="height:60px ;width: 60px;padding: 5px 0px 5px">
-                                        </td>
+                                        </td> --}}
                                         <td class="text-center">
                                             <a href="#" data-toggle="modal" data-target="#exampleModalCenter1{{ $ph->id_loai_phong }}"
                                                 class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
@@ -136,12 +136,12 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    {{-- <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>Sửa Ảnh Mô Tả Khung Cảnh Cho Loại Phòng</label>
                                             <input type="file" name="anh" class="form-control">
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -188,12 +188,12 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
+                                {{-- <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Thêm Ảnh Mô Tả Khung Cảnh Cho Loại Phòng</label>
                                         <input type="file" name="anh" class="form-control" required>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -205,72 +205,5 @@
 
             </div>
         </div>
-        //Cẩn sửa lại
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Quản lý trọ</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form action="{{ route('typeroomsadminadd') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="modal-body">
-                            <div class="text-center col-lg-12">
-                                <h2>Update Trang Thiết Bị</h2>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Loại Phòng</label>
-                                        <select class="form-control" id="guest" name="tenphong" required>
-                                            @foreach ($loaiphong as $lp)
-                                                <option value="{{ $lp->ten_loai_phong }}">{{ $lp->ten_loai_phong }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Loại Phòng</label>
-                                        <select name="thietbi[]" class="mul-select" multiple="true" style="width: 100%">
-                                            {{--  @foreach ($loaiphong as $lp)
-                                                @php
-                                                $values = explode(",",$lp->trangthietbi);
-                                                @endphp
-                                                @for ($i = 0; $i < count($values); $i++)
-                                                        <option value="{{ $values[$i] }}" selected>{{ $values[$i] }}</option>
-                                                    @if(count($values)==0)
-                                                        <option value="{{ $lp->ten_ttb }}" selected>{{ $lp->ten_ttb }}</option>
-                                                    @endif
-                                                    @break($i < count($values))
-                                                @endfor
-                                                @endforeach  --}}
-                                            @foreach ($ttb as $ttb)
-                                                @if ($ttb->ten_ttb != 'Hiện tại khống có trang thiết bị')
-                                                    <option value="{{ $ttb->ten_ttb }}">{{ $ttb->ten_ttb }}</option>
-                                                @endif
-                                            @endforeach
-
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Thêm</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-
-
-
     </div>
 @endsection
