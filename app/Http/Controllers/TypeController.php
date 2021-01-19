@@ -76,7 +76,7 @@ class TypeController extends Controller
         $loaiphong = new LoaiPhongModel();
         $loaiphong->ten_loai_phong = $request->loaiphong;
         $loaiphong->trangthietbi = implode(',',$request -> thietbi);
-        // $loaiphong->anh =$file_Name;
+        $loaiphong->css =$request->style;
         $loaiphong->save();
         // LoaiPhongModel::where('ten_loai_phong', $request->tenphong)->update(['trangthietbi'=>implode(',',$request -> thietbi)]);
         return redirect()->route('typeroomsadmin')->with('message','Thêm Phòng Và Thiết Bị Thành Công');
@@ -105,7 +105,8 @@ class TypeController extends Controller
 
         LoaiPhongModel::where('id_loai_phong',$request->id)->update([
             'ten_loai_phong'=>$request->loaiphong,
-            'trangthietbi'=>implode(',',$request->thietbi)]);
+            'trangthietbi'=>implode(',',$request->thietbi),
+            'css'=>$request->style]);
             // 'anh'=>$file_Name
         return redirect()->route('typeroomsadmin')->with('message','Sửa Thành Công');
     }

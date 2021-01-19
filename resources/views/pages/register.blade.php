@@ -59,6 +59,7 @@
                     @csrf
                         <div class="row">
                             <div class="col-lg-6">
+                                <label>Tên Tài Khoản</label>
                                 <input class="
                                 form-control
                                " name="username" type="text" placeholder="Tên tài khoản">
@@ -67,36 +68,44 @@
                                 @enderror
                             </div>
                             <div class="col-lg-6">
+                                <label>Địa Chỉ Email</label>
+                                <input class="form-control" name="email" type="email" placeholder="Địa chỉ email">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Mật Khẩu</label>
                                 <input class="form-control" name="password" type="password" placeholder="Mật khẩu">
                                 @error('password')
                                     {{ $message }}
                                 @enderror
                             </div>
                             <div class="col-lg-6">
+                                <label>Giới Tính</label>
+                                <select class="form-control" id="guest"  name="gioitinh" style="color:#aaaac4 !important;padding:6px 12px 6px 25px;margin: 0px 0px 28px">
+                                    <option value="" disabled selected>Giới tính</option>
+                                    <option value="Nam" style="width: auto;" data-width="100%">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                </select>
+                                <div class="col-lg-12" style="padding: 0px 0px 0px 0px">
+                                    @error('gioitinh')
+                                    {{ $message }}
+                                @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Nhập Lại Mật Khẩu</label>
                                 <input class="form-control" name="nhaplaimatkhau" type="password"
                                     placeholder="Nhập lại mật khẩu">
                                     @error('nhaplaimatkhau')
                                     {{ $message }}
                                     @enderror
                             </div>
-                            <div class="col-lg-6">
-                                <input class="form-control" name="email" type="email" placeholder="Địa chỉ email">
-                                @error('email')
-                                    {{ $message }}
-                                @enderror
-                            </div>
 
 
-                            <div class="col-lg-6">
-                                <select class="form-control" id="guest"  name="gioitinh" style="color:#aaaac4 !important;padding:6px 12px 6px 25px;margin: 0px 0px 28px">
-                                    <option value="" disabled selected>Giới tính</option>
-                                    <option value="Nam" style="width: auto;" data-width="100%">Nam</option>
-                                    <option value="Nữ">Nữ</option>
-                                </select>
-                                @error('gioitinh')
-                                    {{ $message }}
-                                @enderror
-                            </div>
+
+
                             {{-- <div class="col-lg-6">
                                 <input class="form-control" name="anh" type="file">
                                 @error('anh')
@@ -104,12 +113,14 @@
                                 @enderror
                             </div> --}}
                             <div class="col-lg-6">
+                                <label>Số Điện Thoại</label>
                                 <input class="form-control" name="sdt" type="tel" placeholder="Số điện thoại">
                                 @error('sdt')
                                     {{ $message }}
                                 @enderror
                             </div>
                             <div class="col-lg-12">
+                                <label>Họ Và Tên</label>
                                 <input class="form-control" name="fullname" type="text" placeholder="Họ và tên">
                                 @error('fullname')
                                     {{ $message }}

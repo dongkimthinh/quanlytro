@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <!-- Breadcrumb Section Begin -->
-    <div class="breadcrumb-section custom-breadrumb-section-{{ $loai->id_loai_phong }}">
+    <div class="breadcrumb-section custom-breadrumb-section-{{ $loai->css }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

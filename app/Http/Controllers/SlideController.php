@@ -36,7 +36,7 @@ class SlideController extends Controller
                 $file->move('public/slide',$file_Name);
                 array_push($arr,$file_Name);
             }
-        } else{
+        }else{
             $file_Name='nomane.jpg';
         }
         $Slide = new SlideModel();

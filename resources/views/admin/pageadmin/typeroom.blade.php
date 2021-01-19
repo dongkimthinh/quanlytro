@@ -39,11 +39,11 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th class="text-center">STT</th>
-                                    <th>Loại Phòng</th>
+                                    <th class="text-center">Loại Phòng</th>
                                     {{-- <th>ID Phòng</th> --}}
                                     <th class="text-center">Trang Thiết Bị</th>
                                     {{-- <th class="text-center">Số Lượng Phòng</th> --}}
-                                    {{-- <th class="text-center">Ảnh Mô Tả Loại Phòng</th> --}}
+                                    <th class="text-center">Style</th>
 
                                     <th class="text-center">Hành Động</th>
                                 </tr>
@@ -61,9 +61,9 @@
                                                 @break
                                             @endfor
                                         </td>
-                                        <td>{{ $ph->ten_loai_phong }}</td>
+                                        <td class="text-center">{{ $ph->ten_loai_phong }}</td>
 
-                                        <td>
+                                        <td class="text-center">
                                             {{ $ph->trangthietbi }}
                                         </td>
                                         {{-- <td class="text-center">
@@ -76,6 +76,7 @@
                                         {{-- <td class="text-center">
                                             <img src="{{ asset('public/loaiphong/'.$ph->anh) }}" alt="" style="height:60px ;width: 60px;padding: 5px 0px 5px">
                                         </td> --}}
+                                        <td class="text-center">Style : {{ $ph->css }}</td>
                                         <td class="text-center">
                                             <a href="#" data-toggle="modal" data-target="#exampleModalCenter1{{ $ph->id_loai_phong }}"
                                                 class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
@@ -136,12 +137,21 @@
                                             </select>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-lg-12">
+                                    @php
+                                        $arr = $lp->css;
+
+                                    @endphp
+                                    <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label>Sửa Ảnh Mô Tả Khung Cảnh Cho Loại Phòng</label>
-                                            <input type="file" name="anh" class="form-control">
+                                            <label>Thêm Style Cho Từng Loại Phòng</label>
+                                            <select name="style" class="form-control"style="width: 100%">
+                                                <option value="1" {{ $arr==1?'selected':'' }}>Style 1</option>
+                                                <option value="2" {{ $arr==2?'selected':'' }}>Style 2</option>
+                                                <option value="3" {{ $arr==3?'selected':'' }}>Style 3</option>
+                                                <option value="4" {{ $arr==4?'selected':'' }}>Style 4</option>
+                                            </select>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -188,12 +198,17 @@
                                         </select>
                                     </div>
                                 </div>
-                                {{-- <div class="col-lg-12">
+                                <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label>Thêm Ảnh Mô Tả Khung Cảnh Cho Loại Phòng</label>
-                                        <input type="file" name="anh" class="form-control" required>
+                                        <label>Thêm Style Cho Từng Loại Phòng</label>
+                                        <select name="style" class="form-control"style="width: 100%">
+                                            <option value="1">Style 1</option>
+                                            <option value="2">Style 2</option>
+                                            <option value="3">Style 3</option>
+                                            <option value="4">Style 4</option>
+                                        </select>
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">

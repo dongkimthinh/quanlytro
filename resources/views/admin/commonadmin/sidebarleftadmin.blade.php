@@ -196,6 +196,21 @@
         </div>
     </li>
     <li class="nav-item">
+        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities9"
+        aria-expanded="true" aria-controls="collapseUtilities2">
+        <i class="fas fa-images"></i>
+            <span>Hình ảnh </span>
+        </a>
+        <div id="collapseUtilities9" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="py-2 bg-white rounded collapse-inner">
+                <h6 class="collapse-header">Tùy chỉnh:</h6>
+                <a class="collapse-item" href="{{ route('highlightImg') }}">Ảnh nổi bật</a>
+                <a class="collapse-item" href="{{ route('scenery') }}">Ảnh khung cảnh</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
         <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities5"
         aria-expanded="true" aria-controls="collapseUtilities2">
             <i class="fas fa-concierge-bell"></i>
@@ -245,6 +260,7 @@
             </div>
         </div>
     </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Sidebar Toggler (Sidebar) -->

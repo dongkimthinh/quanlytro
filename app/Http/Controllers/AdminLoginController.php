@@ -39,7 +39,7 @@ class AdminLoginController extends Controller
                         $ten_tk = User::where('ten_tk', $request -> username)->first();
                         $tenad = AdminModel::where('id_ad', $ten_tk -> id_ad)->first();
                         session() -> put('admin',$tenad -> ten_admin);
-                        return view('admin.pageadmin.dashboard');
+                        return redirect()->route('dashboard');
                 }
         } else{
             return redirect()->route('loginadmin')->with('massage','Tài khoản hoặc mật khẩu không chỉnh xác');

@@ -207,7 +207,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Ảnh</label>
-                                        <input class="form-control" type="file" id="validationCustom05" name="anh1[]"  required>
+                                        <input class="form-control" type="file" id="validationCustom05" name="anh1[]" required>
                                     </div>
                                 </div>
                             </div>

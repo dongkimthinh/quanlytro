@@ -26,6 +26,8 @@ use App\Http\Controllers\PayMentController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\ThongTinLienHeController;
 use App\Http\Controllers\TrangThietBiController;
+use App\Http\Controllers\HighlightImgController;
+use App\Http\Controllers\SceneryController;
 use App\Models\SlideModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -79,6 +81,16 @@ Route::prefix('admin')->group(function () {
     Route::post('slideadd',[SlideController::class,'slideadd'])->name('slideadd');
     Route::post('slideupdate',[SlideController::class,'slideupdate'])->name('slideupdate');
     Route::get('slide/{id?}',[SlideController::class,'slidedelete'])->name('slidedelete');
+
+    Route::get('highlightImg',[HighlightImgController::class,'highlightImg'])->name('highlightImg');
+    Route::post('highlightImgAdd',[HighlightImgController::class,'highlightImgAdd'])->name('highlightImgAdd');
+    Route::post('highlightImgUpdate',[HighlightImgController::class,'highlightImgUpdate'])->name('highlightImgUpdate');
+    Route::get('highlight/{id?}',[HighlightImgController::class,'highlightDelete'])->name('highlightDelete');
+
+    Route::get('scenery',[SceneryController::class,'scenery'])->name('scenery');
+    Route::post('sceneryAdd',[SceneryController::class,'sceneryAdd'])->name('sceneryAdd');
+    Route::post('sceneryUpdate',[SceneryController::class,'sceneryUpdate'])->name('sceneryUpdate');
+    Route::get('scenery/{id?}',[SceneryController::class,'sceneryDelete'])->name('sceneryDelete');
 
     Route::post('typeroomsadminadd',[TypeController::class,'typeroomsadminadd'])->name('typeroomsadminadd');
     Route::post('typeroomsadminupdate', [TypeController::class,'typeroomsadminupdate'])->name('typeroomsadminupdate');

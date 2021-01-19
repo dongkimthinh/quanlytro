@@ -23,8 +23,11 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Earnings (Monthly)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                Số Lượng Người Online</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Đang online:{{ count($count) }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Hôm Nay:{{ count($counthomnay) }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Hôm Qua:{{ count($counthomqua) }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Tổng Cộng:{{ count($counttongso) }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -40,9 +43,12 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
+
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Earnings (Annual)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                Số Lượng Phòng Trống : {{ $soluong }} phòng</div>
+                            @foreach($phong as $key => $value)
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $value->ten_loai_phong }}:{{ $value->soluong }}</div>
+                            @endforeach
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -51,9 +57,27 @@
                 </div>
             </div>
         </div>
-
-        <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Số Lượng Hóa Đơn</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Hôm Nay:{{ count($hoadon) }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Hôm Qua:{{ $hoadonhomqua }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Trong 1 Tháng:{{ count($hoadontrong1thang) }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Tổng Cộng:{{ $hoadontongcong }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Earnings (Monthly) Card Example -->
+        {{-- <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -79,7 +103,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Pending Requests Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
@@ -88,8 +112,11 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Pending Requests</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                Số Lượng Tài Khoản</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Hôm Nay:{{ $taikhoanhomnay }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Hôm Qua:{{ $taikhoanhomqua }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Trong 1 Tháng:{{ $taikhoantrong1thang }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Tổng Cộng:{{ $taikhoan }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -105,7 +132,7 @@
     <div class="row">
 
         <!-- Area Chart -->
-        <div class="col-xl-8 col-lg-7">
+        {{-- <div class="col-xl-8 col-lg-7">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div
@@ -133,10 +160,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
+        {{-- <div class="col-xl-4 col-lg-5">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div
@@ -175,7 +202,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     <!-- Content Row -->
@@ -185,7 +212,7 @@
         <div class="col-lg-6 mb-4">
 
             <!-- Project Card Example -->
-            <div class="card shadow mb-4">
+            {{-- <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
                 </div>
@@ -221,10 +248,10 @@
                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Color System -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="card bg-primary text-white shadow">
                         <div class="card-body">
@@ -289,14 +316,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
 
         <div class="col-lg-6 mb-4">
 
             <!-- Illustrations -->
-            <div class="card shadow mb-4">
+            {{-- <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
                 </div>
@@ -312,10 +339,10 @@
                     <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
                         unDraw &rarr;</a>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Approach -->
-            <div class="card shadow mb-4">
+            {{-- <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
                 </div>
@@ -326,7 +353,7 @@
                     <p class="mb-0">Before working with this theme, you should become familiar with the
                         Bootstrap framework, especially the utility classes.</p>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </div>
